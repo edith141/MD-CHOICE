@@ -1,8 +1,8 @@
 # MODEL DELTA CHOICE
 
 
-How to train CHOICE?
-give the 0/1 target label in train data based on the prob of M and D basis the input x.
+### How to train CHOICE?
+Give the 0/1 target label in train data based on the prob of M and D basis the input x.
 
 In simpler terms, treat the C like an independent model that is predicting/classifying if the i/p was better handled by M or D. Just like a binary classifier would classify b/w a cat and a dog (just that the two look very similar in this case). When it is trained enough, and is making accurate predictions, then use it in the system.
 
