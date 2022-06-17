@@ -12,9 +12,9 @@ IP[INPUT] -- input --> M
 
 IP -- input --> D
 
-M -- probability pm --> T -- target 0/1 to train on --> C
+M -- probability Pm--> T -- target 0/1 to train on --> C
 IP -- input --> C
-D -- probability pd --> T
+D -- probability Pd --> T
 
 C -- 0/1 model choice --> OP
 M[M]
@@ -26,7 +26,7 @@ OP((chosen model))
 
 Let's say we use the logistic (sigmoid) function for the CHOICE model.
 * We have i/p data(images (N vectors?/NM Mats?)).
-* We have the target as `(p(D) > p(M)) ? 1:0`
+* We have the target as `(P(d) > P(m)) ? 1:0`
  
 
 So, for GD, we get the cost function as:
