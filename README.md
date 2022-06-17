@@ -12,9 +12,9 @@ IP[INPUT] -- input --> M
 
 IP -- input --> D
 
-M -- probability --> T -- target 0/1 to train on --> C
+M -- probability pm --> T -- target 0/1 to train on --> C
 IP -- input --> C
-D -- probability --> T
+D -- probability pd --> T
 
 C -- 0/1 model choice --> OP
 M[M]
