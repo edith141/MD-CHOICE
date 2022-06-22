@@ -57,7 +57,7 @@ TODO!
 * loss fn? => 1 - h(x) since it is the error in expected probability and predicted probability?! OR we can use derivative of the h(x)?! OR, what is even better is, we use cross entropy -log liklihood; the 2pg derivation I did while doing the linear classification task but ended up using the loss function as defined in the textbook instead. That works here!
 * then just calc. the 2 pg derivative of it. but the goal is to get the loss func and we have that now. I think.
 
-
+We are not using mse (the std error squared method because it is not that good in such scenarios- it penalises much less than the CE does. Hence this helps the gradient d algo to make bigger steps when the error was more than the actual value hence convergence is faster; often, the square one marginally helps in convergance at all.
 
 So, for GD, we get the cost function as:
 $$\frac{\delta}{\delta w_i} Loss(w)=\frac{\delta}{\delta w_i}(y - h_w(x))^2$$
