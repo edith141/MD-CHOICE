@@ -71,7 +71,7 @@ Here,
 $y_i =$ The correct target value (1/0)
 $p_i=$ The predicted probability/value (between 0-1).
 
-The $y_i*log(p_i)$ part in the function activates when the o/p should be 1, and the $(1−y_i)∗log(1−p_i)$ part activates when the o/p should be 0. The terms $y_i$ and $(1-y_i)$ are added to cancel the other term so they don't interfere.
+The $y_i*log(p_i)$ part in the function activates when the o/p should be 1, and the $(1 - y_i)log(1-p_i)$ part activates when the o/p should be 0. The terms $y_i$ and $(1-y_i)$ are added to cancel the other term so they don't interfere with each other.
 
 
 TODO!
