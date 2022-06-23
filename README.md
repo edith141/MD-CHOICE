@@ -88,6 +88,7 @@ and $(1-y_i)$ are added to cancel the other term so they don't interfere with ea
 
 The MSE, while gives the error (actual prob - predicted prob), the loss values are not "high" enough to get the GD convegre faster. As shown in the graph below, the error values for both are plotted. The MSE gives a rahter lesses value when the model predicted a wrong class with high confidence and the CE loss values are especially higer in such cases.
 
-![corss ent vs mse](/crossent_vs_mse.png)
+![corss ent vs mse](/cross_ent_vs_mse.png)
+The actual value for y is 1.
 
 <hr>
