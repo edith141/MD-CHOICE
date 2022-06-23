@@ -50,11 +50,13 @@ C{CHOICE}
 OP((chosen model))
 ```
 
-### The loss function for CHOICE
+<hr>
+
+## The loss function for CHOICE
 
 #### Cross Entropy ( w/ sigmoid).
 CE is, in a way, measure of surprise. Like how surprised are we seeing the predicted result (we should not be surprised seeing am expected (correct) result). 
-THE LOGLOSS GRAPH IMAGE HERE!
+![log_loss_cross_ent](/crossent_loss.png)
 
 CE especially penalises the predictions that are confident and wrong more. This design sort of advises our model to not only make the right predictions, but also be confident about the predictions.
 
@@ -64,12 +66,12 @@ The sigmoid function gives us a probability that an input x belongs to a certain
 
 
 **CE is given as:**
-$$CE= \frac{1}{N}\sum^N_i - (y_i  * log(p_i) + (1-y_i) * log(1 - p_i) )$$
+$$CE=\frac{1}{N}\sum^N_i-(y_i*log(p_i)+(1-y_i)*log(1-p_i))$$
 Here, 
-$y_i  =$ The correct target value (1/0)
-$p_i =$ The predicted probability/value (between 0-1).
+$y_i =$ The correct target value (1/0)
+$p_i=$ The predicted probability/value (between 0-1).
 
-The $y_i  * log(p_i)$ part in the function activates when the o/p should be 1, and the $(1−y_i​)∗log(1−p_i​)$ part activates when the o/p should be 0. The terms $y_i$ and $(1-y_i)$ are added to cancel the other term so they don't interfere.
+The $y_i*log(p_i)$ part in the function activates when the o/p should be 1, and the $(1−y_i)∗log(1−p_i)$ part activates when the o/p should be 0. The terms $y_i$ and $(1-y_i)$ are added to cancel the other term so they don't interfere.
 
 
 TODO!
