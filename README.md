@@ -57,15 +57,13 @@ OP((chosen model))
 ## The loss function for CHOICE
 
 #### Cross Entropy ( w/ sigmoid).
-CE is, in a way, measure of surprise. Like how surprised are we seeing the predicted result (we should not be surprised seeing an expected (correct) result). 
+CE is, in a way, is the measure of surprise. Like how surprised are we seeing the predicted result (we should not be surprised seeing an expected (correct) result!).
 
 ![log_loss_cross_ent](/crossent_loss.png)
 
 CE especially penalises the predictions that are confident and wrong more. This design sort of advises our model to not only make the right predictions, but also be confident about the predictions.
 
-As in the graph, when the error is high, the slop is rather sharp and that motivates the GD algo to take larger steps towards convergence.
-
-The sigmoid function gives us a probability that an input x belongs to a certain class. 
+Our model computes probabilities over all input x (image) (using sigmoid) and is trained to minimize the cross-entropy between the predicted and actual distribution (the sigmoid function gives us a probability that an input x belongs to a certain class). As shown in the graph, when the error is high, the slop is rather sharp and that motivates the GD algo to take larger steps towards convergence.
 
 
 **CE is given as:**
