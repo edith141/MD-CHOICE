@@ -86,7 +86,7 @@ and $(1-y_i)$ are added to cancel the other term so they don't interfere with ea
 
 ## Why CE Loss and not just MSE?
 
-The MSE, while gives the error (actual prob - predicted prob), the loss values are not "high" enough to get the GD convegre faster. As shown in the graph below, the error values for both are plotted. The MSE gives a rahter lesses value when the model predicted a wrong class with high confidence and the CE loss values are especially higer in such cases.
+The MSE, while gives the actual error (actual prob - predicted prob), the loss values are not "high" enough (esp when the estimates are way off the real values) to get the GD convegre faster. As shown in the graph below, the error values for both are plotted. The MSE gives a relatively less value when the model predicted a wrong class with high confidence, while the CE loss values are especially higer for such cases.
 
 ![corss ent vs mse](/cross_ent_vs_mse.png)
 The actual value for y is 1.
