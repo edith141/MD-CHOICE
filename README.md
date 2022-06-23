@@ -1,3 +1,6 @@
+
+
+
 # MD CHOICE
 Choose a model for a task that two models can perform but one has to perform better than the other. Use a third model to choose (the better) between the two.
 <hr>
@@ -57,13 +60,14 @@ OP((chosen model))
 ## The loss function for CHOICE
 
 #### Cross Entropy ( w/ sigmoid).
-CE is, in a way, is the measure of surprise. Like how surprised are we seeing the predicted result (we should not be surprised seeing an expected (correct) result!).
-
-![log_loss_cross_ent](/crossent_loss.png)
+CE is, in a way, the measure of surprise. Like how surprised are we seeing the predicted result (we should not be surprised seeing an expected (correct) result!).
 
 CE especially penalises the predictions that are confident and wrong more. This design sort of advises our model to not only make the right predictions, but also be confident about the predictions.
 
-Our model computes probabilities over all input x (image) (using sigmoid) and is trained to minimize the cross-entropy between the predicted and actual distribution (the sigmoid function gives us a probability that an input x belongs to a certain class). As shown in the graph, when the error is high, the slop is rather sharp and that motivates the GD algo to take larger steps towards convergence.
+![log_loss_cross_ent](https://raw.githubusercontent.com/edith141/MD-CHOICE/main/crossent_loss.png)
+
+
+Our model computes probabilities over all input x (image) and is trained to minimize the cross-entropy between the predicted and actual distribution (the sigmoid function gives us a probability that an input x belongs to a certain class). As shown in the graph, when the error is high, the slope is rather sharp/steep and that motivates the GD algo to take larger steps towards convergence (minima).
 
 
 **CE Loss is given as:**
@@ -88,7 +92,8 @@ and $(1-y_i)$ are added to cancel the other term so they don't interfere with ea
 
 The MSE, while gives the actual error (actual prob - predicted prob), the loss values are not "high" enough (esp when the estimates are way off the real values) to get the GD convegre faster. As shown in the graph below, the error values for both are plotted. The MSE gives a relatively less value when the model predicted a wrong class with high confidence, while the CE loss values are especially higer for such cases.
 
-![corss ent vs mse](/cross_ent_vs_mse.png)
+![corss ent vs mse](https://github.com/edith141/MD-CHOICE/blob/main/cross_ent_vs_mse.png?raw=true)
+
 The actual value for y is 1.
 
 <hr>
