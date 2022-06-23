@@ -66,8 +66,8 @@ CE especially penalises the predictions that are confident and wrong more. This 
 Our model computes probabilities over all input x (image) (using sigmoid) and is trained to minimize the cross-entropy between the predicted and actual distribution (the sigmoid function gives us a probability that an input x belongs to a certain class). As shown in the graph, when the error is high, the slop is rather sharp and that motivates the GD algo to take larger steps towards convergence.
 
 
-**CE is given as:**
-$$CE=\frac{1}{N}\sum^N_i-(y_i*log(p_i)+(1-y_i)*log(1-p_i))$$
+**CE Loss is given as:**
+$$CE Loss=\frac{1}{N}\sum^N_i-(y_i*log(p_i)+(1-y_i)*log(1-p_i))$$
 Here, 
 
 
@@ -82,25 +82,12 @@ and the $(1 - y_i) * log(1-p_i)$ part activates when the o/p should be 0.
 The terms $y_i$ 
 and $(1-y_i)$ are added to cancel the other term so they don't interfere with each other.
 
+<hr>
 
-TODO!
-* The act function? => softmax => sigmoid h(x) since it is binary classification
-* loss fn? => 1 - h(x) since it is the error in expected probability and predicted probability?! OR we can use derivative of the h(x)?! OR, what is even better is, we use cross entropy -log liklihood; the 2pg derivation I did while doing the linear classification task but ended up using the loss function as defined in the textbook instead. That works here!
-* then just calc. the 2 pg derivative of it. but the goal is to get the loss func and we have that now. I think.
+## Why CE Loss and not just MSE?
 
+The MSE, while gives the error (actual prob - predicted prob), the loss values are not "high" enough to get the GD convegre faster. As shown in the graph below, the error values for both are plotted. The MSE gives a rahter lesses value when the model predicted a wrong class with high confidence and the CE loss values are especially higer in such cases.
 
-The Loss here could just be the sum of squared residuals of all predictions. The MSE, really. But CE is better for a loss function here (reasons are given further below). 
+![corss ent vs mse](/crossent_vs_mse.png)
 
-
-So, for GD, we get the cost function as:
-$$\frac{\delta}{\delta w_i} Loss(w)=\frac{\delta}{\delta w_i}(y - h_w(x))^2$$
-Applying chain rule $$\frac{\delta_g(f(x))}{\delta x} = g' (f(x))\frac{\delta f(x)}{\delta x}$$
-
-... solving this we get-  $$-2(y-h_w(x)) * g'(w.x)*x_i$$
-(where, g'(f(x)) is the derivative of the outer function)
-
-And, derivative of a logistic fn- g(z) satisfies $g'(z) = g(z) . (1-g(z))$  
-
-now, plugging in the values of the logistic fn (in h(x)) we get the equation to update the weight for minimizing the loss - 
-$$w_i \leftarrow w_i + lr(y-h_w(x)) * (h_w(x)).(1-(y-h_w(x)) * x_i$$
-The same equation is used in the code as well to update the coeff.
+<hr>
