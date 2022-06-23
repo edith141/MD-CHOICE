@@ -24,7 +24,7 @@ The end goal really is- to be able to predict, given an image, what model (M or 
 This can be seen as a binary classifier, where the model C outputs 0/1. Here, 1 could mean that the D model will be better, and a 0 means the model M will be a better choice.
 
 ### How to train CHOICE?
-The general idea on an approach to train C is shown in the flow chart below.
+The general idea for an approach to train C is shown in the flow chart below.
 
 Give the 0/1 target label in train data based on the probability/score of M and D basis the input x. So, we have - 
 * The i/p data (images).
@@ -34,7 +34,7 @@ In simpler terms, treat the C like an independent model that is predicting/class
 
 ```mermaid
 graph LR
-IP[INPUT] -- input --> M
+IP -- input --> M
 
 IP -- input --> D
 
@@ -43,6 +43,8 @@ IP -- input --> C
 D -- probability Pd --> T
 
 C -- 0/1 model choice --> OP
+
+IP[INPUT]
 M[M]
 D[D]
 T{D > M}
@@ -55,7 +57,7 @@ OP((chosen model))
 ## The loss function for CHOICE
 
 #### Cross Entropy ( w/ sigmoid).
-CE is, in a way, measure of surprise. Like how surprised are we seeing the predicted result (we should not be surprised seeing am expected (correct) result). 
+CE is, in a way, measure of surprise. Like how surprised are we seeing the predicted result (we should not be surprised seeing an expected (correct) result). 
 
 ![log_loss_cross_ent](/crossent_loss.png)
 
